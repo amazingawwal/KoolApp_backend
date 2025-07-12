@@ -53,16 +53,18 @@ def activities2(req, month):
     redirect = reverse('monthly-activity', args=[monthKey[monthIndex]])
     return HttpResponseRedirect( redirect )
 
-context = {
-    'text': monthlyActivities["January"]
-}
+
 
 def render_html(req, month):
+    context = {
+    'text': monthlyActivities[month],
+    'month': month
+    }
     try:
         # activity_text = monthlyActivities[month]
-        # return render(req, 'activities/activity.html')
-        response = render_to_string('activities/activity.html', context)
-        return HttpResponse(response)
+        return render(req, 'activities/activity.html', context)
+        # response = render_to_string('activities/activity.html', context)
+        # return HttpResponse(response)
     except Exception as e:
         print(e)
         return HttpResponseBadRequest('Bad entry')
