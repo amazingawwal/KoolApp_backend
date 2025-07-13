@@ -20,17 +20,22 @@ monthlyActivities = {
 
 # Create your views here.
 
-def activity(req):
-    list_items = ''
-    months = list(monthlyActivities.keys())
+# def activity(req):
+#     list_items = ''
+#     months = list(monthlyActivities.keys())
     
-    for month in months:
-        # url = f'/home/{month}'
-        url = reverse('monthly-activity', args=[month])
-        list_items += f"<li><a href={url}>{month}<a/></li>"
-        response_data = f"<ul>{list_items}</ul>"
-        # response_data = month
+#     for month in months:
+#         url = f'/home/{month}'
+#         # url = reverse('monthly-activity', args=[month])
+#         list_items += f"<li><a href={url}>{month}<a/></li>"
+#         response_data = f"<ul>{list_items}</ul>"
+#         # response_data = month
 
+#     return HttpResponse(response_data)
+
+def activity(req):
+    months = list(monthlyActivities.keys())
+    response_data = render_to_string('activities/home.html', {'months' : months})
     return HttpResponse(response_data)
 
 
@@ -50,6 +55,7 @@ def activities2(req, month):
         return HttpResponseBadRequest('Invalid Input')
     monthIndex = month - 1
 
+    # redirect = f'/home/{monthKey[monthIndex]}'
     redirect = reverse('monthly-activity', args=[monthKey[monthIndex]])
     return HttpResponseRedirect( redirect )
 

@@ -6,5 +6,4 @@ urlpatterns = [
     path('<month>', views.render_html),   
     path('<int:month>', views.activities2),
     path('<str:month>', views.activities, name='monthly-activity'),
-    
 ] 
