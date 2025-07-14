@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Error Message{% endblock title %}
+
+<link rel='stylesheet' href='{% static "styles/activity.css" %}'>
+{% block error_msg %}
+<h1 class='error'>Invalid Entry...</h1>
+<h2 class='error'>Please try again!</h2>
+{% endblock  %}

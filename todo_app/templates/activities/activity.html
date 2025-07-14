@@ -1,9 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}{{month}} Activity{% endblock  %}
+{% block css_file %}
+    <link rel='stylesheet' href='{% static "styles/activity.css" %}'>
+{% endblock css_file %}
+
+{% block title %}{{month}}'s Activity{% endblock  %}
 
 {% block content %}
     <h2>{{month}}</h2>
         {% include "include/include.html" with activity_page='Add new activity' %}
-    <p>{{text}}</p>
+    <p class='text'>{{text}}</p>
 {% endblock  %}
+

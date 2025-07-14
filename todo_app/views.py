@@ -45,6 +45,8 @@ def activities(req, month):
         response = f'<h2>{monthlyActivity}</h2>'
         return HttpResponse(response)
     except:
+        # response = render_to_string('404.html')
+        # return HttpResponse(response)
         return HttpResponseBadRequest('Invalid Entry')
 
 
@@ -52,6 +54,8 @@ def activities(req, month):
 def activities2(req, month):
     monthKey = list(monthlyActivities.keys())
     if month > len(monthKey):
+        # response = render_to_string('404.html')
+        # return HttpResponse(response)
         return HttpResponseBadRequest('Invalid Input')
     monthIndex = month - 1
 
@@ -73,4 +77,6 @@ def render_html(req, month):
         # return HttpResponse(response)
     except Exception as e:
         print(e)
+        # response = render_to_string('404.html')
+        # return HttpResponse(response)
         return HttpResponseBadRequest('Bad entry')

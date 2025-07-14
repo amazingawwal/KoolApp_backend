@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_file %}{% endblock css_file %}
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
     <a href={% url "home" %}> All Activities<a/>
     {% block content %}
     {% endblock  %}
+    {% block error_msg %}{% endblock error_msg %}
 </body>
 </html>
+
+
 

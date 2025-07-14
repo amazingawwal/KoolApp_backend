@@ -1,11 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel='stylesheet' href='{% static "styles/activity.css" %}'>
+{% endblock css_file %}
 
 {% block title %}Monthly Activities{% endblock title %}
 
 {% block content %}
-    <ul>
+    <ul >
         {% for month in months  %}
-            <li>
+            <li class='list'>
                 <a href='{% url "monthly-activity" month %}'>
                     {{month}}
                 </a>
